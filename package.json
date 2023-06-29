@@ -16,7 +16,7 @@
   "license": "ISC",
   "lint-staged": {
     "src/**/*.ts": [
-      "tsc --noEmit",
+      "tsc --noEmit --esModuleInterop",
       "yarn lint-prettier:check"
     ]
   },
