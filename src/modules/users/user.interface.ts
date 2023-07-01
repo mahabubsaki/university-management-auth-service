@@ -5,7 +5,7 @@ export interface IUser {
     role: string;
     password?: string;
 }
-
+x;
 export interface IUserMethods {
     demo: () => string;
 }
