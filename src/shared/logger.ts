@@ -23,7 +23,7 @@ export const logger = createLogger({
         new transports.Console(),
         new DailyRotateFile({
             filename: path.join(process.cwd(), 'logs', 'winston', 'succeses', 'phu-%DATE%-success.log'),
-            datePattern: 'YYYY-MM-DD-HH',
+            datePattern: 'YYYY-MM-DD',
             zippedArchive: true,
             maxSize: '20m',
             maxFiles: '14d'
@@ -43,7 +43,7 @@ export const errorLogger = createLogger({
         new transports.Console(),
         new DailyRotateFile({
             filename: path.join(process.cwd(), 'logs', 'winston', 'errors', 'phu-%DATE%-errors.log'),
-            datePattern: 'YYYY-MM-DD-HH',
+            datePattern: 'YYYY-MM-DD',
             zippedArchive: true,
             maxSize: '20m',
             maxFiles: '14d'
