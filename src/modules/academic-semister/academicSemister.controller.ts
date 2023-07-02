@@ -8,7 +8,7 @@ export const createSemesterController = catchAsync(async (req: Request, res: Res
 
     const { ...academicSemisterData } = req.body;
     const result = await createSemester(academicSemisterData);
-    next();
+
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
@@ -16,5 +16,5 @@ export const createSemesterController = catchAsync(async (req: Request, res: Res
         message: "Academic semester is created successfully"
     });
 
-
+    next();
 });

@@ -7,7 +7,7 @@ import { createUser } from "./user.service";
 export const createUserController = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const { user } = req.body;
     const result = await createUser(user);
-    next();
+
 
     sendResponse(res, {
         statusCode: httpStatus.OK,
@@ -15,4 +15,5 @@ export const createUserController = catchAsync(async (req: Request, res: Respons
         data: result,
         message: "User created successfully"
     });
+    next();
 });

@@ -1,5 +1,6 @@
 import cors from 'cors';
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
+import httpStatus from 'http-status';
 import globalErrorHandler from './middlewares/globalErrorHandler';
 import router from './routes';
 const app: Application = express();
@@ -20,7 +21,24 @@ app.get('/', (_, res) => {
   res.send({ status: true, message: 'server runinng perfectly' });
 });
 
-//global error handler (it should be always under application route)
+//ERRORS HANDLERS
+
+
+//global error handler should be always under the application route
 app.use(globalErrorHandler);
+
+//not found error handler
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(httpStatus.NOT_FOUND).json({
+    success: false,
+    message: "Route not found",
+    errorMessages: [{
+      path: req.originalUrl,
+      message: "API Route not found"
+    }]
+  });
+  next();
+});
+
 
 export default app;
