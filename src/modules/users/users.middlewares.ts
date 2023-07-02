@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { createUserZodSchema } from "../../schemas/zod/createUser.schema";
+import { createUserZodSchema } from "./user.validator";
 
 export const validateCreateUser: RequestHandler = async (req, _, next): Promise<void> => {
     try {
