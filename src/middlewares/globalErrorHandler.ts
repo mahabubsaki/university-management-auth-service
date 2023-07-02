@@ -5,14 +5,15 @@ import { ApiError } from "../errors/ApiError";
 import handleValidationError from "../errors/handleValidationError";
 import handleZodError from "../errors/handleZodError";
 import { IGenericErrorResponse } from "../interfaces/common";
+import { errorLogger } from "../shared/logger";
 
 const globalErrorHandler: ErrorRequestHandler = (err: ApiError, req: Request, res: Response, next: NextFunction) => {
-
     let responseObj: IGenericErrorResponse = {
         statusCode: 500,
         message: "Something went wrong!",
         errorMessages: []
     };
+    errorLogger.error(err);
 
     if (err?.name === 'ValidationError' && err instanceof Error.ValidationError) {
         const simplifiedError = handleValidationError(err);
