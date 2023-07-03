@@ -1,13 +1,26 @@
-import { Model } from "mongoose";
+import { Document, Model } from "mongoose";
 
-export interface IAcademicSemester {
+export interface IAcademicSemester extends Document {
     title: 'Autumn' | 'Summer' | 'Fall',
     year: number,
     code: '01' | '02' | '03',
     startMonth: 'January' | 'May' | 'September';
     endMonth: 'April' | 'August' | 'December';
 }
-
+export interface IPaginationOptions {
+    page?: number,
+    limit?: number,
+    sortBy?: string,
+    sortOrder?: 'asc' | 'desc';
+};
+export interface IGenericAcademicSemesterResponse<T> {
+    meta: {
+        page: number,
+        limit: number,
+        total: number;
+    },
+    data: T;
+}
 
 export interface IAcademicSemesterMethods {
     demo: () => string;

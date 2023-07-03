@@ -1,11 +1,10 @@
-import { Document } from "mongoose";
 import config from "../../config";
 import { IUser } from "./user.interface";
 import { User } from "./user.model";
 import { generateUserId } from "./user.utils";
 
 
-export const createUser = async (user: IUser): Promise<Document | null> => {
+export const createUser = async (user: IUser): Promise<IUser | null> => {
     if (!user.password) {
         user.password = config.default_user_password as string;
     }
