@@ -51,3 +51,11 @@ export const getSingleSemester = async (id: string): Promise<IAcademicSemester |
     const result = await AcademicSemister.findById(id);
     return result;
 };
+export const updateSemester = async (id: string, body: IAcademicSemester) => {
+    const result = await AcademicSemister.findByIdAndUpdate(id, body, { new: true });
+    return result;
+};
+export const deleteSemester = async (id: string) => {
+    const result = await AcademicSemister.findByIdAndDelete(id);
+    return result;
+};

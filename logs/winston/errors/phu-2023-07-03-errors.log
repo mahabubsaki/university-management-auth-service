@@ -17,3 +17,37 @@ Date : [Mon - Jul 3, 2023, 11:58:02 AM] | error : Cast to ObjectId failed for va
 Date : [Mon - Jul 3, 2023, 12:02:48 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
 Date : [Mon - Jul 3, 2023, 12:02:49 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
 Date : [Mon - Jul 3, 2023, 12:04:00 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 1:08:11 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 1:23:51 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:30:20 PM] | error : If You want to update a semester then, You have to give title,year,startMongth,endMongth,code
+Date : [Mon - Jul 3, 2023, 1:31:25 PM] | error : If You want to update a semester then, You have to give title,year,startMongth,endMongth,code
+Date : [Mon - Jul 3, 2023, 1:32:09 PM] | error : Invalid semester data
+Date : [Mon - Jul 3, 2023, 1:32:22 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:32:34 PM] | error : Invalid semester data
+Date : [Mon - Jul 3, 2023, 1:32:38 PM] | error : Invalid semester data
+Date : [Mon - Jul 3, 2023, 1:46:11 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:46:17 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:47:14 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:47:44 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:48:27 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:48:28 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:48:34 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:48:48 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 1:49:04 PM] | error : Cast to ObjectId failed for value "64a043a98" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 1:51:11 PM] | error : If You want to update a semester then, You have to give title,year,startMongth,endMongth,code
+Date : [Mon - Jul 3, 2023, 1:54:47 PM] | error : Invalid ObjectID Given
+Date : [Mon - Jul 3, 2023, 1:55:32 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 1:55:36 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 2:14:16 PM] | error : Academic semester is already exist!
+Date : [Mon - Jul 3, 2023, 2:14:25 PM] | error : [
+  {
+    "expected": "'Autumn' | 'Summer' | 'Fall'",
+    "received": "undefined",
+    "code": "invalid_type",
+    "path": [
+      "body",
+      "title"
+    ],
+    "message": "Title is required"
+  }
+]

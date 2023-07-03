@@ -23,3 +23,14 @@ AcademicSemesterSchema.pre('save', async function (next) {
     }
     next();
 });
+
+AcademicSemesterSchema.pre('findOneAndUpdate', async function (next) {
+    const updatedData = this.getUpdate() as { title?: string; year?: number; };
+    if (updatedData.title && updatedData.year) {
+        const isExist = await AcademicSemister.findOne({ title: updatedData.title, year: updatedData.year });
+        if (isExist) {
+            throw new ApiError(httpStatus.CONFLICT, "Academic semester is already exist!");
+        }
+    }
+    next();
+});

@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import { Types } from "mongoose";
 import { z } from "zod";
 import { ApiError } from "../../errors/ApiError";
 import { IAcademicSemester } from "./academicSemister.interface";
@@ -51,5 +52,18 @@ export const validateSemisterObject = (obj: IAcademicSemester): void => {
     }
     if (error) {
         throw new ApiError(httpStatus.BAD_REQUEST, "Invalid semester data");
+    }
+};
+
+export const validateUpdateSemesterObject = (obj: Partial<IAcademicSemester>): void => {
+    if (!obj.title || !obj.year || !obj.startMonth || !obj.endMonth || !obj.code) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "If You want to update a semester then, You have to give title,year,startMongth,endMongth,code");
+    }
+
+};
+
+export const validateObjectId = (id: string) => {
+    if (!Types.ObjectId.isValid(id)) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Invalid ObjectID Given");
     }
 };
