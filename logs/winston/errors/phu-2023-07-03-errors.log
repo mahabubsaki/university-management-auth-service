@@ -13,3 +13,7 @@ Date : [Mon - Jul 3, 2023, 11:06:31 AM] | error : $and/$or/$nor must be a nonemp
 Date : [Mon - Jul 3, 2023, 11:07:32 AM] | error : $and/$or/$nor must be a nonempty array
 Date : [Mon - Jul 3, 2023, 11:08:10 AM] | error : $and/$or/$nor must be a nonempty array
 Date : [Mon - Jul 3, 2023, 11:08:54 AM] | error : $and/$or/$nor must be a nonempty array
+Date : [Mon - Jul 3, 2023, 11:58:02 AM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 12:02:48 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 12:02:49 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"
+Date : [Mon - Jul 3, 2023, 12:04:00 PM] | error : Cast to ObjectId failed for value "64a11931fab9005eb2c61ee" (type string) at path "_id" for model "Academic-Semester"

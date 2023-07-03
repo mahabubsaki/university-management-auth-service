@@ -46,3 +46,8 @@ export const getAllSemester = async (paginationOptions: IPaginationOptions, filt
         data: result
     };
 };
+
+export const getSingleSemester = async (id: string): Promise<IAcademicSemester | null> => {
+    const result = await AcademicSemister.findById(id);
+    return result;
+};

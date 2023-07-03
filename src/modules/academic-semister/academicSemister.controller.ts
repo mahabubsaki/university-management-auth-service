@@ -4,7 +4,7 @@ import catchAsync from "../../shared/catchAsync";
 import pick from "../../shared/pick";
 import sendResponse from "../../shared/sendResponse";
 import { IAcademicSemester, IFilterOptions, IPaginationOptions } from "./academicSemister.interface";
-import { createSemester, getAllSemester } from "./academicSemister.service";
+import { createSemester, getAllSemester, getSingleSemester } from "./academicSemister.service";
 
 export const createSemesterController = catchAsync(async (req: Request, res: Response) => {
 
@@ -32,4 +32,16 @@ export const getAllSemesterController = catchAsync(async (req: Request, res: Res
 
     next();
 
+});
+
+export const getSingleSemesterControler = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const id = req.params.id;
+    const result = await getSingleSemester(id);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        data: result,
+        message: `Successfully retrieved semester with id ${id}`
+    });
+    next();
 });
