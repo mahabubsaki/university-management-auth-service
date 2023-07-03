@@ -28,6 +28,7 @@ const globalErrorHandler: ErrorRequestHandler = (err: ApiError, req: Request, re
         responseObj = { statusCode: err.statusCode, message: err.message, errorMessages: err?.message ? [{ path: '', message: err?.message }] : [] };
     }
 
+
     if (process.env.NODE_ENV === 'development') {
         responseObj.stack = err.stack;
     }

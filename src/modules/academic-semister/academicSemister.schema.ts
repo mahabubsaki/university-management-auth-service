@@ -7,7 +7,7 @@ import { AcademicSemister } from "./academicSemister.model";
 export const AcademicSemesterSchema = new Schema<IAcademicSemester, IAcademicSemesterStatics, IAcademicSemesterMethods>(
     {
         title: { type: String, required: true, enum: ['Autumn', 'Summer', 'Fall'] },
-        year: { type: Number, required: true },
+        year: { type: String, required: true },
         code: { type: String, required: true, enum: ['01', '02', '03'] },
         startMonth: { type: String, required: true, enum: ['January', 'May', 'September'] },
         endMonth: { type: String, required: true, enum: ['April', 'August', 'December'] },

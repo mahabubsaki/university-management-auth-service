@@ -9,12 +9,13 @@ export const createAcademicSemisterZodSchema = z.object({
             required_error: "Title is required",
             invalid_type_error: "Title type should be string",
         }),
-        year: z.number({ required_error: "Year is required for creating semister", invalid_type_error: "Year should be number" }).refine(((value: number) => {
+        year: z.string({ required_error: "Year is required for creating semister", invalid_type_error: "Year should be number" }).refine(((value: string) => {
+            const val = Number(value);
             const currentYear = new Date().getFullYear();
             const minYear = 1900;
             const maxYear = currentYear + 10;
 
-            return value >= minYear && value <= maxYear;
+            return val >= minYear && val <= maxYear;
         }), {
             message: "Invalid Year"
         }),

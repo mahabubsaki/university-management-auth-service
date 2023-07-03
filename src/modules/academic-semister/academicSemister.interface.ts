@@ -2,7 +2,7 @@ import { Document, Model } from "mongoose";
 
 export interface IAcademicSemester extends Document {
     title: 'Autumn' | 'Summer' | 'Fall',
-    year: number,
+    year: string,
     code: '01' | '02' | '03',
     startMonth: 'January' | 'May' | 'September';
     endMonth: 'April' | 'August' | 'December';
@@ -13,6 +13,9 @@ export interface IPaginationOptions {
     sortBy?: string,
     sortOrder?: 'asc' | 'desc';
 };
+export interface IFilterOptions {
+    searchTerm?: string;
+}
 export interface IGenericAcademicSemesterResponse<T> {
     meta: {
         page: number,
