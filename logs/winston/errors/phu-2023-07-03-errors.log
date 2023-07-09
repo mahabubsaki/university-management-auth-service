@@ -51,3 +51,4 @@ Date : [Mon - Jul 3, 2023, 2:14:25 PM] | error : [
     "message": "Title is required"
   }
 ]
+Date : [Mon - Jul 3, 2023, 2:53:23 PM] | error : Cast to ObjectId failed for value "create-faculty" (type string) at path "_id" for model "AcademicFaculty"

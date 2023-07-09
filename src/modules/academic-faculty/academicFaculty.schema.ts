@@ -12,7 +12,7 @@ export const AcademicFacultySchema = new Schema<IAcademicFaculty, IAcademicFacul
 );
 
 AcademicFacultySchema.pre('save', async function (next) {
-    const isExist = await AcademicFaculty.findOne({ email: this.title });
+    const isExist = await AcademicFaculty.findOne({ title: this.title });
     if (isExist) {
         throw new ApiError(httpStatus.CONFLICT, "Academic faculty with this title already exists!");
     }
