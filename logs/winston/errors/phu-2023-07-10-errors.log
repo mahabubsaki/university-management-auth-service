@@ -11,3 +11,62 @@ Date : [Mon - Jul 10, 2023, 12:23:26 PM] | error : [
   }
 ]
 Date : [Mon - Jul 10, 2023, 12:31:26 PM] | error : Cast to ObjectId failed for value "create-faculty" (type string) at path "_id" for model "AcademicFaculty"
+Date : [Mon - Jul 10, 2023, 1:04:09 PM] | error : Cannot read properties of undefined (reading 'password')
+Date : [Mon - Jul 10, 2023, 1:04:36 PM] | error : [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "Role is required for creating user"
+  }
+]
+Date : [Mon - Jul 10, 2023, 1:05:43 PM] | error : [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "Role is required for creating user"
+  }
+]
+Date : [Mon - Jul 10, 2023, 1:16:33 PM] | error : [
+  {
+    "received": "facult",
+    "code": "invalid_enum_value",
+    "options": [
+      "student",
+      "admin",
+      "faculty"
+    ],
+    "path": [
+      "body",
+      "user",
+      "role"
+    ],
+    "message": "Invalid enum value. Expected 'student' | 'admin' | 'faculty', received 'facult'"
+  }
+]
+Date : [Mon - Jul 10, 2023, 1:17:08 PM] | error : [
+  {
+    "received": "admi",
+    "code": "invalid_enum_value",
+    "options": [
+      "student",
+      "admin",
+      "faculty"
+    ],
+    "path": [
+      "body",
+      "user",
+      "role"
+    ],
+    "message": "Invalid enum value. Expected 'student' | 'admin' | 'faculty', received 'admi'"
+  }
+]
