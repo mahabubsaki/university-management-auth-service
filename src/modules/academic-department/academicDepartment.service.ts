@@ -4,7 +4,7 @@ import { IAcademicDepartment, IFilterOptions, IGenericAcademicDepartmentResponse
 import { AcademicDepartment } from "./academicDepartment.model";
 
 export const createDepartment = async (payload: IAcademicDepartment): Promise<IAcademicDepartment> => {
-    const result = await AcademicDepartment.create(payload);
+    const result = (await AcademicDepartment.create(payload)).populate('academicFaculty');
     return result;
 };
 
@@ -33,7 +33,7 @@ export const getAllDepartments = async (paginationOptions: IPaginationOptions, f
     const { skip, limit, page, sortBy, sortOrder } = paginationHelpers(paginationOptions);
     const sortOption: { [key: string]: SortOrder; } = {};
     sortOption[sortBy] = sortOrder;
-    const result = await AcademicDepartment.find(conditions.length ? { $and: conditions } : {}).sort(sortOption).skip(skip).limit(Number(limit));
+    const result = await AcademicDepartment.find(conditions.length ? { $and: conditions } : {}).populate('academicFaculty').sort(sortOption).skip(skip).limit(Number(limit));
     const total = await AcademicDepartment.estimatedDocumentCount();
     return {
         meta: {

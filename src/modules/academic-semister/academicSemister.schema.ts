@@ -12,7 +12,11 @@ export const AcademicSemesterSchema = new Schema<IAcademicSemester, IAcademicSem
         startMonth: { type: String, required: true, enum: ['January', 'May', 'September'] },
         endMonth: { type: String, required: true, enum: ['April', 'August', 'December'] },
     },
-    { timestamps: true }
+    {
+        timestamps: true, toJSON: {
+            virtuals: true
+        }
+    }
 );
 
 

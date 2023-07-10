@@ -51,7 +51,7 @@ export const getSingleFaculty = async (id: string): Promise<IAcademicFaculty | n
 };
 
 export const updateFaculty = async (id: string, body: IAcademicFaculty) => {
-    const result = await AcademicFaculty.findByIdAndUpdate(id, body, { new: true });
+    const result = (await AcademicFaculty.findByIdAndUpdate(id, body, { new: true }))?.populate('academicFaculty');
     return result;
 };
 

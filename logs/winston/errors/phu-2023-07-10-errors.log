@@ -1,0 +1,13 @@
+Date : [Mon - Jul 10, 2023, 12:23:26 PM] | error : [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicFaculty"
+    ],
+    "message": "Academic Faculty is required"
+  }
+]
+Date : [Mon - Jul 10, 2023, 12:31:26 PM] | error : Cast to ObjectId failed for value "create-faculty" (type string) at path "_id" for model "AcademicFaculty"

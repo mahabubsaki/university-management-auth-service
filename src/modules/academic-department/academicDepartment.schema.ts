@@ -7,9 +7,13 @@ import { AcademicDepartment } from './academicDepartment.model';
 export const AcademicDepartmentSchema = new Schema<IAcademicDepartment, IAcademicDepartmentStatics, IAcademicDepartmentMethods>(
     {
         title: { type: String, required: true },
-        academicFaculty: { type: String, required: true }
+        academicFaculty: { type: String, required: true, ref: 'AcademicFaculty' }
     },
-    { timestamps: true }
+    {
+        timestamps: true, toJSON: {
+            virtuals: true
+        }
+    }
 );
 
 AcademicDepartmentSchema.pre('save', async function (next) {

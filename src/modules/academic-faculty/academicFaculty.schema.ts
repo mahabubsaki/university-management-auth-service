@@ -8,7 +8,11 @@ export const AcademicFacultySchema = new Schema<IAcademicFaculty, IAcademicFacul
     {
         title: { type: String, required: true },
     },
-    { timestamps: true }
+    {
+        timestamps: true, toJSON: {
+            virtuals: true
+        }
+    }
 );
 
 AcademicFacultySchema.pre('save', async function (next) {

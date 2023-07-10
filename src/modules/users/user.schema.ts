@@ -1,5 +1,5 @@
-import { Schema } from 'mongoose'
-import { IUser, IUserMethods, IUserStatics } from './user.interface'
+import { Schema } from 'mongoose';
+import { IUser, IUserMethods, IUserStatics } from './user.interface';
 
 export const UserSchema = new Schema<IUser, IUserStatics, IUserMethods>(
   {
@@ -7,5 +7,9 @@ export const UserSchema = new Schema<IUser, IUserStatics, IUserMethods>(
     role: { type: String, required: true },
     password: { type: String, required: true },
   },
-  { timestamps: true }
-)
+  {
+    timestamps: true, toJSON: {
+      virtuals: true
+    }
+  }
+);
