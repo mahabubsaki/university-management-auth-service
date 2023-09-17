@@ -33,7 +33,7 @@ export const UserSchema = new Schema<IUser, IUserStatics, IUserMethods>(
 
 
 UserSchema.methods.isUserExist = async function (id: string) {
-  const exist = await User.findById(id, { id: 1, password: 1, needsPasswordChange: 1 }).lean();
+  const exist = await User.findById(id, { id: 1, password: 1, needsPasswordChange: 1, role: 1 }).lean();
   return exist;
 };
 
