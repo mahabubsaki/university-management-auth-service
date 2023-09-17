@@ -1,5 +1,4 @@
 import httpStatus from "http-status";
-import { Types } from "mongoose";
 import { z } from "zod";
 import { ApiError } from "../../errors/ApiError";
 import { IAcademicFaculty } from "./academicFaculty.interface";
@@ -17,8 +16,4 @@ export const validateUpdateFacultyObject = (obj: Partial<IAcademicFaculty>): voi
     }
 };
 
-export const validateObjectId = (id: string) => {
-    if (!Types.ObjectId.isValid(id)) {
-        throw new ApiError(httpStatus.BAD_REQUEST, "Invalid ObjectID given");
-    }
-};
+

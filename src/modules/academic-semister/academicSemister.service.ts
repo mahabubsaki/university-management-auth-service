@@ -36,7 +36,7 @@ export const getAllSemester = async (paginationOptions: IPaginationOptions, filt
     const sortOption: { [key: string]: SortOrder; } = {};
     sortOption[sortBy] = sortOrder;
     const result = await AcademicSemister.find(conditions.length ? { $and: conditions } : {}).sort(sortOption).skip(skip).limit(Number(limit));
-    const total = await AcademicSemister.estimatedDocumentCount();
+    const total = await AcademicSemister.estimatedDocumentCount(conditions.length ? { $and: conditions } : {});
     return {
         meta: {
             page: Number(page),
@@ -51,11 +51,13 @@ export const getSingleSemester = async (id: string): Promise<IAcademicSemester |
     const result = await AcademicSemister.findById(id);
     return result;
 };
-export const updateSemester = async (id: string, body: IAcademicSemester) => {
-    const result = await AcademicSemister.findByIdAndUpdate(id, body, { new: true });
-    return result;
-};
+
 export const deleteSemester = async (id: string) => {
     const result = await AcademicSemister.findByIdAndDelete(id);
+    return result;
+};
+
+export const updateSemester = async (id: string, body: IAcademicSemester) => {
+    const result = await AcademicSemister.findByIdAndUpdate(id, body, { new: true });
     return result;
 };
