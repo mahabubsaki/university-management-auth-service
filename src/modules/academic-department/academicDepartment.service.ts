@@ -34,7 +34,7 @@ export const getAllDepartments = async (paginationOptions: IPaginationOptions, f
     const sortOption: { [key: string]: SortOrder; } = {};
     sortOption[sortBy] = sortOrder;
     const result = await AcademicDepartment.find(conditions.length ? { $and: conditions } : {}).populate('academicFaculty').sort(sortOption).skip(skip).limit(Number(limit));
-    const total = await AcademicDepartment.estimatedDocumentCount();
+    const total = await AcademicDepartment.estimatedDocumentCount(conditions.length ? { $and: conditions } : {});
     return {
         meta: {
             page: Number(page),

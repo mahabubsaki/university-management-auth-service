@@ -3,15 +3,16 @@ import httpStatus from "http-status";
 import catchAsync from "../../shared/catchAsync";
 import pick from "../../shared/pick";
 import sendResponse from "../../shared/sendResponse";
+import validateObjectId from "../../shared/validateObjectId";
 import { IAcademicSemester, IFilterOptions, IPaginationOptions } from "./academicSemister.interface";
 import { createSemester, deleteSemester, getAllSemester, getSingleSemester, updateSemester } from "./academicSemister.service";
-import { validateObjectId, validateSemisterObject, validateUpdateSemesterObject } from "./academicSemister.validator";
+import { validateSemisterObject, validateUpdateSemesterObject } from "./academicSemister.validator";
 
 export const createSemesterController = catchAsync(async (req: Request, res: Response) => {
 
     const { ...academicSemisterData } = req.body;
     const result = await createSemester(academicSemisterData);
-    sendResponse(res, {
+    sendResponse<Partial<IAcademicSemester>>(res, {
         statusCode: httpStatus.OK,
         success: true,
         data: result,
@@ -38,7 +39,7 @@ export const getAllSemesterController = catchAsync(async (req: Request, res: Res
 export const getSingleSemesterControler = catchAsync(async (req: Request, res: Response) => {
     const id = req.params.id;
     const result = await getSingleSemester(id);
-    sendResponse(res, {
+    sendResponse<Partial<IAcademicSemester>>(res, {
         statusCode: httpStatus.OK,
         success: true,
         data: result,
@@ -53,7 +54,7 @@ export const updateSemesterController = catchAsync(async (req: Request, res: Res
     validateSemisterObject(req.body);
     const body: IAcademicSemester = req.body;
     const result = await updateSemester(id, body);
-    sendResponse(res, {
+    sendResponse<Partial<IAcademicSemester>>(res, {
         statusCode: httpStatus.OK,
         success: true,
         message: `Successfully updated the semester with id ${id}`,
@@ -65,7 +66,7 @@ export const deleteSemesterController = catchAsync(async (req: Request, res: Res
     const id = req.params.id;
     validateObjectId(id);
     const result = await deleteSemester(id);
-    sendResponse(res, {
+    sendResponse<Partial<IAcademicSemester>>(res, {
         statusCode: httpStatus.OK,
         success: true,
         message: `Successfully deleted the semester with id ${id}`,

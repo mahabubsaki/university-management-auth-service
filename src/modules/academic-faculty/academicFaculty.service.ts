@@ -34,7 +34,7 @@ export const getAllFaculty = async (paginationOptions: IPaginationOptions, filte
     const sortOption: { [key: string]: SortOrder; } = {};
     sortOption[sortBy] = sortOrder;
     const result = await AcademicFaculty.find(conditions.length ? { $and: conditions } : {}).sort(sortOption).skip(skip).limit(Number(limit));
-    const total = await AcademicFaculty.estimatedDocumentCount();
+    const total = await AcademicFaculty.estimatedDocumentCount(conditions.length ? { $and: conditions } : {});
     return {
         meta: {
             page: Number(page),
