@@ -14,6 +14,7 @@ export const createStudent = async (student: IStudent, user: IUser): Promise<IUs
     if (!user.password) {
         user.password = config.default_student_password as string;
     }
+
     user.role = 'student';
     const academicSemester = await AcademicSemister.findById(student.academicSemester);
     let newUserAllData: IUser | null = null;
