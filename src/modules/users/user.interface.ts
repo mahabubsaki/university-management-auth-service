@@ -6,12 +6,14 @@ export interface IUser extends Document {
     role: string;
     password?: string;
     student?: Types.ObjectId | IStudent;
+    needsPasswordChange: boolean;
     // faculty?: Types.ObjectId | IFaculty;
     // admin?: Types.ObjectId | IAdmin;
 
 }
 export interface IUserMethods {
-    demo: () => string;
+    isUserExist(id: string): Promise<Partial<IUser> | null>,
+    isPasswordMatched(givenPass: string, actualPass: string): Promise<boolean>;
 }
 
 export interface IUserStatics extends Model<IUser, object, IUserMethods> {
