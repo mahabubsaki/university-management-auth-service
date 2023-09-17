@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { Schema } from 'mongoose';
 import { IUser, IUserMethods, IUserStatics } from './user.interface';
 
@@ -25,3 +26,9 @@ export const UserSchema = new Schema<IUser, IUserStatics, IUserMethods>(
     }
   }
 );
+
+
+UserSchema.pre('save', async function (next) {
+  this.password = await bcrypt.hash(this.password as string, 12);
+  next();
+});
