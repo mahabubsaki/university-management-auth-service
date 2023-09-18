@@ -1,11 +1,11 @@
 import httpStatus from "http-status";
-import jwt, { Secret } from "jsonwebtoken";
+import { Secret } from "jsonwebtoken";
 import config from "../../config";
 import { ENUM_JWT_EXPIRATION } from "../../enums/user.enum";
 import { ApiError } from "../../errors/ApiError";
-import createToken from "../../helpers/jwtTokenCreate";
+import { createToken, verifyToken } from "../../helpers/jwtTokenCreate";
 import { User } from "../users/user.model";
-import { ILoginCreds, MyJwtPayload } from "./auth.interface";
+import { ILoginCreds } from "./auth.interface";
 
 
 export const authLogin = async (payload: ILoginCreds) => {
@@ -34,7 +34,7 @@ export const authLogin = async (payload: ILoginCreds) => {
 };
 
 export const createRefreshToken = async (token: string) => {
-    const { id, role } = jwt.verify(token, config.jwt_refresh_secret as Secret) as MyJwtPayload;
+    const { id, role } = verifyToken(token, config.jwt_refresh_secret as Secret);
     const userInstance = new User();
     const exist = await userInstance.isUserExist(id);
     if (!exist) {

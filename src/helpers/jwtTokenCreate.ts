@@ -1,6 +1,10 @@
 import jwt, { Secret } from "jsonwebtoken";
+import { MyJwtPayload } from "../modules/auth/auth.interface";
 
-const createToken = (payload: Record<string, unknown>, secret: Secret, options: Record<string, unknown>): string => {
+export const createToken = (payload: Record<string, unknown>, secret: Secret, options: Record<string, unknown>): string => {
     return jwt.sign(payload, secret, options);
 };
-export default createToken;
+export const verifyToken = (token: string, secret: Secret) => {
+    return jwt.verify(token, secret) as MyJwtPayload;
+}
+
